@@ -1,0 +1,6 @@
+SQL:
+	- What's the best way to write SQL in your handler functions?
+
+Auth:
+	- Good strategy to implement auth 
+
