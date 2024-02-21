@@ -83,7 +83,7 @@ func getUser(db *sql.DB) http.HandlerFunc {
 		var u User
 		err := db.QueryRow("SELECT * FROM users WHERE id = $1", id).Scan(&u.ID, &u.Name, &u.Email)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusNotFound)
+			w.WriteHeader(http.StatusNotFound)
 			return
 		}
 		json.NewEncoder(w).Encode(u)
@@ -98,7 +98,7 @@ func createUser(db *sql.DB) http.HandlerFunc {
 
 		err := db.QueryRow("INSERT INTO users (name, email) VALUES ($1, $2) RETURNING id", u.Name, u.Email).Scan(&u.ID)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusBadRequest)
+			w.WriteHeader(http.StatusNotFound)
 			return
 		}
 		json.NewEncoder(w).Encode(u)
@@ -116,7 +116,7 @@ func updateUser(db *sql.DB) http.HandlerFunc {
 
 		_, err := db.Exec("UPDATE users SET name = $1, email = $2 WHERE id = $3", u.Name, u.Email, id)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusNotFound)
+			w.WriteHeader(http.StatusNotFound)
 			return
 		}
 		u.ID, _ = strconv.Atoi(id)
@@ -138,10 +138,10 @@ func deleteUser(db *sql.DB) http.HandlerFunc {
 		} else {
 			_, err := db.Exec("DELETE FROM users WHERE id = $1", id)
 			if err != nil {
-				http.Error(w, err.Error(), http.StatusNotFound)
+				w.WriteHeader(http.StatusNotFound)
 				return
 			}
+			json.NewEncoder(w).Encode("User deleted")
 		}
-		json.NewEncoder(w).Encode("User deleted")
 	}
 }
