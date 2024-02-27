@@ -2,5 +2,33 @@ SQL:
 	- What's the best way to write SQL in your handler functions?
 
 Auth:
-	- Good strategy to implement auth 
+	- Good strategy to implement auth
 
+
+
+
+
+
+
+
+
+
+
+theHW:
+	- Journaling: buy journal and pen
+		- write date and time
+		- start writing
+		- up to 3 pages if possible
+		- as often as possible
+		- developing a dialog with yourself
+		- clarifying your feelings and thoughts
+	- Meditation:
+		- set reminder on phone
+	- Sleep Hygiene:
+		- min: 7 hours
+		- Set bedtime and wake time
+	- kbb.com
+		- 4x4 honda element?
+	- how long to become VT resident?
+	- carolyn: mi ok says to get a new car
+		- response: I know... It's on my to-do list.

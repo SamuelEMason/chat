@@ -11,10 +11,10 @@ COPY . .
 RUN go get -d -v ./...
 
 # build the Go app
-RUN go build -o api .
+RUN go build -o chat ./cmd
 
 # expose the port
 EXPOSE 8000
 
 # run the executable
-CMD ["./api"]
+CMD ["./chat"]
